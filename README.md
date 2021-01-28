@@ -92,5 +92,14 @@ Deverá executar com `yarn start` na porta 4000
 Deverá executar com `yarn start` na porta 3000
 
 
-### Anotações que valem menção colocar aqui:
-...
+## Anotações que valem menção colocar aqui:
+
+### Script `curl` funcional para chamada na api
+```sh
+
+  curl --request POST \
+  --url http://localhost:4000/graphql \
+  --header 'Content-Type: application/json' \
+  --data '{"query":"query {\n  list(name: \"il\") {\n    name\n    friends(name: \"li\") {\n      name\n    }\n  }\n}"}'
+
+```
