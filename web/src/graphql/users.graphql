@@ -1,0 +1,29 @@
+query UsersList($search: String) {
+  list(name: $search) {
+    _id
+    name
+    age
+    eyeColor
+    company
+    email
+    picture
+  }
+}
+
+query UserDetails($id: String!) {
+  find(id: $id) {
+    _id
+    name
+    age
+    email
+    picture
+    friends {
+      picture
+      name
+      age
+      eyeColor
+      company
+      email
+    }
+  }
+}
