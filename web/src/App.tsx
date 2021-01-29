@@ -6,16 +6,14 @@ import apolloClient from './services/client'
 import GlobalStyles from './styles/global'
 import { SearchProvider } from './context/search'
 
-const App: React.FC = () => {
+function App() {
   return (
-    <>
+    <ApolloProvider client={apolloClient}>
       <GlobalStyles />
-      <ApolloProvider client={apolloClient}>
-        <SearchProvider>
-          <Routes />
-        </SearchProvider>
-      </ApolloProvider>
-    </>
+      <SearchProvider>
+        <Routes />
+      </SearchProvider>
+    </ApolloProvider>
   )
 }
 

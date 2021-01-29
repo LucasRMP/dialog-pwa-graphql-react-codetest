@@ -15,21 +15,20 @@ interface LayoutRouteProps extends RouteProps {
   component: React.FC<RouteComponentProps>
 }
 
-const LayoutRoute: React.FC<LayoutRouteProps> = ({
-  component: Component,
-  ...props
-}) => (
-  <Route
-    {...props}
-    component={(routeProps: any) => (
-      <DefaultLayout>
-        <Component {...routeProps} />
-      </DefaultLayout>
-    )}
-  />
-)
+function LayoutRoute({ component: Component, ...props }: LayoutRouteProps) {
+  return (
+    <Route
+      {...props}
+      component={(routeProps: any) => (
+        <DefaultLayout>
+          <Component {...routeProps} />
+        </DefaultLayout>
+      )}
+    />
+  )
+}
 
-const Routes: React.FC = () => {
+function Routes() {
   return (
     <BrowserRouter>
       <Switch>

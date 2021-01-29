@@ -10,6 +10,4 @@ import App from './App'
 
 ReactDOM.render(<App />, document.getElementById('root'))
 
-serviceWorkerRegistration.register({
-  onSuccess: () => console.log('ServiceWorker successfully registered'),
-})
+serviceWorkerRegistration.register()

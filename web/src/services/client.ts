@@ -3,7 +3,7 @@ import { onError } from '@apollo/client/link/error'
 
 const errorLink = onError(({ graphQLErrors, operation, forward }) => {
   if (graphQLErrors) {
-    console.log({ graphQLErrors })
+    console.error({ graphQLErrors })
   }
 
   forward(operation)
@@ -16,7 +16,7 @@ const httpLink = new HttpLink({
 const apolloClient = new ApolloClient({
   link: from([httpLink, errorLink]),
   cache: new InMemoryCache(),
-  credentials: 'include'
+  credentials: 'include',
 })
 
 export default apolloClient

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router'
 import styled from 'styled-components'
 
-import { useSearch } from '../hooks/useSearch'
+import useSearch from '../hooks/useSearch'
 import SearchInput from './SearchInput'
 
 function Header() {
@@ -21,7 +21,6 @@ function Header() {
             history.push('/')
           }
 
-          console.log(query)
           setQuery(query)
         }}
       />

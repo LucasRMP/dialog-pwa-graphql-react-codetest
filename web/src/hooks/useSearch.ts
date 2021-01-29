@@ -2,7 +2,7 @@ import React from 'react'
 
 import { SearchContext } from '../context/search'
 
-export function useSearch() {
+function useSearch() {
   const context = React.useContext(SearchContext)
 
   if (!context) {
@@ -11,3 +11,5 @@ export function useSearch() {
 
   return context
 }
+
+export default useSearch

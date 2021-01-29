@@ -34,7 +34,12 @@ function UserCard({ data, onClick }: Props) {
   return (
     <Container onClick={() => onClick?.(data._id)}>
       <ContentWrapper>
-        <Img src={data.picture} loader={<ImagePlaceholder />} loading="lazy" />
+        <Img
+          src={data.picture}
+          loader={<ImagePlaceholder />}
+          alt="userCardImage"
+          loading="lazy"
+        />
 
         <Info>
           {infoFields.map(key => (

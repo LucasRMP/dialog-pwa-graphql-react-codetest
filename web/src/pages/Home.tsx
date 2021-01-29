@@ -1,20 +1,21 @@
 import React from 'react'
-import GridList from '../components/GridList'
 import { useHistory } from 'react-router'
 
 import UserCard from '../components/UserCard'
 import { useUsersListQuery } from '../generated/graphql'
-import { useSearch } from '../hooks/useSearch'
+import useSearch from '../hooks/useSearch'
 import Spinner from '../components/Spinner'
+import NoData from '../components/NoData'
+import GridList from '../components/GridList'
 
-const Home: React.FC = () => {
+function Home() {
   const { query } = useSearch()
   const { data, loading, error } = useUsersListQuery({
     variables: { search: query },
   })
   const history = useHistory()
 
-  if (loading || error) {
+  if (loading) {
     return (
       <div>
         <Spinner />
@@ -22,8 +23,8 @@ const Home: React.FC = () => {
     )
   }
 
-  if (data?.list.length === 0) {
-    return <div>Sem dados :(</div>
+  if (error || data?.list.length === 0) {
+    return <NoData />
   }
 
   return (
