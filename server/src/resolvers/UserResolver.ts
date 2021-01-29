@@ -30,4 +30,9 @@ export class UserResolver {
 
     return UserService.find()
   }
+
+  @Query(() => User)
+  async find(@Arg('id') id: string) {
+    return UserService.findById(id)
+  }
 }

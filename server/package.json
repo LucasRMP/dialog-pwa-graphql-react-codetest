@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "@lucasrmp/dialog-test-web",
   "version": "0.0.1",
   "description": "Awesome project developed with TypeORM.",
   "devDependencies": {
@@ -23,6 +23,8 @@
     "type-graphql": "^1.1.1"
   },
   "scripts": {
-    "start:dev": "nodemon --exec ts-node src/index.ts"
+    "build": "npx tsc",
+    "start:dev": "nodemon --exec ts-node src/index.ts",
+    "start": "node dist/index.js"
   }
 }

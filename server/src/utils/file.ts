@@ -5,7 +5,7 @@ import { promisify } from 'util'
 export async function readFile<T>(identifier = 'users'): Promise<T[]> {
   try {
     const data = await promisify(fs.readFile)(
-      path.join(__dirname, '..', 'data', `${identifier}.json`),
+      path.resolve(__dirname, '..', 'data', `${identifier}.json`),
       { encoding: 'utf-8' },
     )
 
@@ -14,7 +14,8 @@ export async function readFile<T>(identifier = 'users'): Promise<T[]> {
     }
 
     return JSON.parse(data)
-  } catch {
+  } catch (err) {
+    console.log(err)
     throw new Error(`Path not found: ${identifier}`)
   }
 }

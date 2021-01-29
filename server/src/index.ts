@@ -1,8 +1,8 @@
 import 'reflect-metadata'
 import { config } from 'dotenv'
 import express from 'express'
-import cors from 'cors'
 import morgan from 'morgan'
+import cors from 'cors'
 
 config()
 import initApolloServer from './apolloServer'
@@ -11,11 +11,7 @@ async function init() {
   const app = express()
 
   app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'))
-  app.use(
-    cors({
-      origin: process.env.WEB_APP_URL!,
-    }),
-  )
+  app.use(cors())
 
   await initApolloServer(app)
 

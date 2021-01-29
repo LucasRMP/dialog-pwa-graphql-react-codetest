@@ -13,11 +13,13 @@ async function initApolloServer(app: Express) {
       req,
       res,
     }),
-    playground: process.env.NODE_ENV !== 'production',
+    playground: true,
   })
 
-  server.applyMiddleware({ app, cors: false })
-  console.log('Apollo server successfully initialized')
+  server.applyMiddleware({
+    app,
+    cors: true,
+  })
 }
 
 export default initApolloServer
