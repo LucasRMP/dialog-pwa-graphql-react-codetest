@@ -19,18 +19,3 @@ export async function readFile<T>(identifier = 'users'): Promise<T[]> {
     throw new Error(`Path not found: ${identifier}`)
   }
 }
-
-// const writeFile = (
-//   fileData,
-//   callback,
-//   filePath = dataPath,
-//   encoding = 'utf8',
-// ) => {
-//   fs.writeFile(filePath, fileData, encoding, err => {
-//     if (err) {
-//       throw err
-//     }
-
-//     callback()
-//   })
-// }
