@@ -1,3 +1,4 @@
+import MeasureTime from '../decoretors/MeasureTime'
 import { Arg, FieldResolver, Query, Resolver, Root } from 'type-graphql'
 
 import { User } from '../entities/User'
@@ -6,6 +7,7 @@ import { buildNameRegex } from '../utils/regex'
 
 @Resolver(() => User)
 export class UserResolver {
+  @MeasureTime('friendsUserResolver')
   @FieldResolver()
   async friends(
     @Root() user: User,
@@ -20,6 +22,7 @@ export class UserResolver {
     return user.friends
   }
 
+  @MeasureTime('listUsers')
   @Query(() => [User])
   async list(@Arg('name', { nullable: true }) name?: string) {
     if (name) {
